@@ -6,6 +6,7 @@ defmodule Test.Support.Live do
     ~H"""
     <html>
       <a class="home" phx-click="home">Home</a>
+      <a id="normallink" href="/home">Normal home</a>
       <span id="link-1"><a phx-click="link-1">Edit Link</a></span>
       <div class="lolwat">yes</div>
       <form id="widget-form" phx-change="changed" phx-submit="submitted">

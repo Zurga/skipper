@@ -27,6 +27,7 @@ defmodule Skipper.LiveViewTest do
 
   defmacro __using__([]) do
     quote do
+      alias Plug.Conn
       import Phoenix.LiveViewTest
       import unquote(__MODULE__)
 
@@ -36,6 +37,10 @@ defmodule Skipper.LiveViewTest do
 
       defp handle_redirects(conn, nil, {:ok, view, html}) do
         {conn, {:ok, view, html}}
+      end
+
+      defp handle_redirects(conn, _, {:ok, %Plug.Conn{} = new_conn}) do
+        {new_conn, live(new_conn)}
       end
 
       defp handle_redirects(conn, _view, redirect) do

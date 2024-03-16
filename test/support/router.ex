@@ -5,6 +5,7 @@ defmodule Test.Support.Router do
 
   live("/", Test.Support.Live)
   live("/redirect", Redirect)
+  live("/home", Test.Support.Live)
 end
 
 defmodule Redirect do
